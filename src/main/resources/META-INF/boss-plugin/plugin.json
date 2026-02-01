@@ -1,0 +1,21 @@
+{
+  "manifestVersion": 1,
+  "pluginId": "ai.rever.boss.plugin.dynamic.fluck",
+  "displayName": "ChatGPT (Dynamic)",
+  "version": "1.0.0",
+  "apiVersion": "1.0",
+  "mainClass": "ai.rever.boss.plugin.dynamic.fluck.FluckDynamicPlugin",
+  "type": "panel",
+  "description": "ChatGPT integration for AI assistance",
+  "author": "Risa Labs",
+  "url": "https://github.com/risa-labs-inc/boss-plugin-fluck",
+  "panel": {
+    "position": "right_top_top",
+    "priority": 15
+  },
+  "sandbox": {
+    "maxThreads": 4,
+    "maxRestartAttempts": 3,
+    "heartbeatIntervalMs": 5000
+  }
+}
