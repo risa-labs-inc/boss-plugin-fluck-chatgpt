@@ -12,7 +12,7 @@ import ai.rever.boss.plugin.browser.BrowserService
 class FluckDynamicPlugin : DynamicPlugin {
     override val pluginId: String = "ai.rever.boss.plugin.dynamic.fluck"
     override val displayName: String = "ChatGPT (Dynamic)"
-    override val version: String = "1.0.2"
+    override val version: String = "1.0.3"
     override val description: String = "ChatGPT integration for AI assistance"
     override val author: String = "Risa Labs"
     override val url: String = "https://github.com/risa-labs-inc/boss-plugin-fluck"
