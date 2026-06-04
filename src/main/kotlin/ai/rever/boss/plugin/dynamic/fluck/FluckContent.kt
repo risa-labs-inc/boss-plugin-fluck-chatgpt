@@ -225,8 +225,13 @@ private fun BrowserToolbar(
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        // Title/URL display
-        Column(modifier = Modifier.weight(1f)) {
+        // Title/URL display — single line, vertically centered so the title sits LEVEL with the
+        // Back/Forward/Reload/Home icons. Previously a two-line Column whose top line (the title)
+        // rode above the icon row's center, which read as misaligned next to the Home icon.
+        Row(
+            modifier = Modifier.weight(1f).fillMaxHeight(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Text(
                 text = title,
                 fontSize = 11.sp,
@@ -235,12 +240,14 @@ private fun BrowserToolbar(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
+            Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = url,
                 fontSize = 9.sp,
                 color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f),
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.weight(1f, fill = false)
             )
         }
     }
