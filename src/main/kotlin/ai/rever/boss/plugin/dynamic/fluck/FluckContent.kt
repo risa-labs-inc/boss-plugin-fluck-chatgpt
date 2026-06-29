@@ -4,6 +4,7 @@ import ai.rever.boss.plugin.browser.BrowserConfig
 import ai.rever.boss.plugin.browser.BrowserHandle
 import ai.rever.boss.plugin.browser.BrowserService
 import ai.rever.boss.plugin.ui.BossTheme
+import ai.rever.boss.plugin.ui.BossThemeColors
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -13,7 +14,6 @@ import androidx.compose.material.icons.outlined.SmartToy
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -266,7 +266,7 @@ private fun BrowserErrorMessage() {
                 imageVector = Icons.Default.Error,
                 contentDescription = null,
                 modifier = Modifier.size(32.dp),
-                tint = Color(0xFFEF5350)
+                tint = BossThemeColors.ErrorColor
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
