@@ -1,27 +1,43 @@
-# BOSS ChatGPT Plugin
+# BOSS ChatGPT
 
-Dynamic panel plugin for BOSS desktop application.
+chatgpt.com in a right sidebar panel.
 
-## Description
+A small embedded-browser panel with its own navigation toolbar, so ChatGPT sits beside your
+work instead of in a separate window. It is a browser embed and nothing more: there is no API
+integration, no prompt handling, and no session management of its own. You sign in inside the
+embedded page exactly as you would in a browser.
 
-ChatGPT integration for AI assistance
+Note the naming: the repository and plugin id say `fluck`, the panel is titled **ChatGPT**, and
+the built jar is `boss-plugin-fluck-*.jar`.
 
-## Building
+## What it does
+
+- **Embeds chatgpt.com** through the host `BrowserService`, created on first composition and
+  disposed when the panel leaves composition.
+- **Navigation toolbar**: Back, Forward, Reload and Home. Back and Forward disable themselves
+  when there is nowhere to go.
+- **Live page title and URL** on a single line beside the controls.
+- **Downloads and fullscreen** are enabled. Devtools are not.
+- **Clear fallbacks**: a spinner while loading, "Failed to load browser" on an invalid handle,
+  and an explanatory message when no `BrowserService` is available.
+
+## Requirements
+
+- BOSS >= 8.16.30, boss-plugin-api >= 1.0.20
+- The host `BrowserService` with JxBrowser configured. Without it the panel explains that
+  rather than rendering blank.
+- Network egress to chatgpt.com.
+
+This plugin contributes no MCP tools and declares no permissions.
+
+## Build
 
 ```bash
 ./gradlew buildPluginJar
+cp build/libs/boss-plugin-fluck-*.jar ~/.boss/plugins/
 ```
 
-The JAR will be generated at `build/libs/boss-plugin-fluck-1.0.0.jar`
-
-## Installation
-
-Copy the JAR to your BOSS plugins directory or install via Plugin Manager.
-
-## Development Status
-
-This is a stub implementation. Full functionality requires additional
-host services to be exposed through PluginContext.
+See [AGENTS.md](AGENTS.md) for architecture and conventions.
 
 ## License
 
